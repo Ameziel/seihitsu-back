@@ -8,7 +8,7 @@ import java.util.List;
 @Configuration
 public class ClientConfig {
 
-//    @Bean
+    @Bean
     CommandLineRunner commandLineRunner(ClientRepository clientRepository) {
         return args -> {
             Client a = new Client(

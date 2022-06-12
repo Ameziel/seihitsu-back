@@ -21,6 +21,11 @@ public class ClientController {
         return clientService.getClients();
     }
 
+    @GetMapping(path = "/{clientid}")
+    public void getClientById(@PathVariable("clientid") Long id){
+//        return clientService.getClientById(id);
+    }
+
     @PostMapping("/add")
     public void ajoutClient(@RequestBody Client client) {
         clientService.addNewClient(client);
@@ -30,7 +35,5 @@ public class ClientController {
     public void deleteClient(@PathVariable("clientid") Long id) {
         clientService.deleteClient(id);
     }
-
-
 
 }

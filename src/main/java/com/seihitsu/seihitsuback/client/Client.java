@@ -24,7 +24,7 @@ public class Client {
             strategy = GenerationType.SEQUENCE,
             generator = "client_sequence"
     )
-    private Long idclient;
+    private Long idClient;
 
     @Column(name ="nom")
     private String nom;
@@ -33,9 +33,15 @@ public class Client {
     @Column(name = "email")
     private String email;
 
+    /**
+     * Client Constructeur
+     * @param arg_nom
+     * @param arg_prenom
+     * @param arg_email
+     */
     public Client(String arg_nom, String arg_prenom, String arg_email) {
-        this.nom = arg_nom;
+        this.nom    = arg_nom;
         this.prenom = arg_prenom;
-        this.email = arg_email;
+        this.email  = arg_email;
     }
 }
