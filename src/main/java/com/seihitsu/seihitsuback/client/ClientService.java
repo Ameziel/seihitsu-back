@@ -17,7 +17,7 @@ public class ClientService {
     }
 
     /**
-     * Consulte tous les clients de l'application
+     * Retourne une liste de tous les clients de l'application
      * @return une liste de clients
      */
     public List<Client> getClients() {
@@ -25,7 +25,7 @@ public class ClientService {
     }
 
     /**
-     * Consulte un client par son identifiant. (ID)
+     * Retourne un client par son identifiant. (ID)
      * @return Le client de l'application(ID)
      */
     public Optional<Client> getClientById(Long clientId) {
@@ -55,6 +55,5 @@ public class ClientService {
             throw new ClientNotFoundException(clientId);
         }
         clientRepository.deleteById(clientId);
-
     }
 }
