@@ -10,29 +10,25 @@ import java.util.List;
 @RequestMapping(path = "api/employe")
 public class EmployeController {
 
-//    private final EmployeService employeService;
-//
-//    @Autowired
-//    public EmployeController(EmployeService employeService) {
-//        this.employeService = employeService;
-//    }
+    private final EmployeService employeService;
 
-//    @GetMapping("/all")
-//    public List<Employe> getEmployes() {
-//        return employeService.getEmployes();
-//    }
+    @Autowired
+    public EmployeController(EmployeService employeService) {
+        this.employeService = employeService;
+    }
 
-//    @PostMapping("/add")
-//    public void ajoutClient(@RequestBody Employe employe) {
-//        employeService.addNewEmploye(employe);
-//    }
-//
-//    @DeleteMapping(path = "/{employeid}")
-//    public void deleteClient(@PathVariable("employeid") Long id) {
-//        employeService.deleteEMploye(id);
-//    }
+    @GetMapping("/all")
+    public List<Employe> getEmployes() {
+        return employeService.getEmployes();
+    }
 
+    @PostMapping("/add")
+    public void ajoutClient(@RequestBody Employe employe) {
+        employeService.addNewEmploye(employe);
+    }
 
-
-
+    @DeleteMapping(path = "/{employeid}")
+    public void deleteClient(@PathVariable("employeid") Long id) {
+        employeService.deleteEMploye(id);
+    }
 }
