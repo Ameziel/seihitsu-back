@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/client")
@@ -22,8 +23,8 @@ public class ClientController {
     }
 
     @GetMapping(path = "/{clientid}")
-    public void getClientById(@PathVariable("clientid") Long id){
-//        return clientService.getClientById(id);
+    public Optional<Client> getClientById(@PathVariable("clientid") Long clientid){
+        return clientService.getClientById(clientid);
     }
 
     @PostMapping("/add")
