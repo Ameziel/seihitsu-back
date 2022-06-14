@@ -45,7 +45,6 @@ public class DataInitConfig {
             employeRepository.saveAll
                     (List.of(employe1,employe2)
                     );
-
         };
     }
 }

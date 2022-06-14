@@ -1,8 +1,12 @@
 package com.seihitsu.seihitsuback.employe;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.seihitsu.seihitsuback.sejour.Sejour;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "employe")
@@ -32,6 +36,10 @@ public class Employe {
     private String prenom;
     @Column(name = "libellePoste")
     private String libellePoste;
+
+    @OneToMany(mappedBy = "refEmploye")
+    @JsonIgnoreProperties(value = { "refEmploye" }, allowSetters = true)
+    private Set<Sejour> sejours = new HashSet<>();
 
     /**
      * Employe Constructeur
