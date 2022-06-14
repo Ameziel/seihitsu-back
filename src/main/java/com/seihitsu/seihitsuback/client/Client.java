@@ -1,8 +1,13 @@
 package com.seihitsu.seihitsuback.client;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.seihitsu.seihitsuback.sejour.Sejour;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "client")
@@ -32,6 +37,11 @@ public class Client {
     private String prenom;
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "refClient")
+    @JsonIgnoreProperties(value = { "refClient" }, allowSetters = true)
+    private Set<Sejour> sejours = new HashSet<>();
+
 
     /**
      * Client Constructeur
