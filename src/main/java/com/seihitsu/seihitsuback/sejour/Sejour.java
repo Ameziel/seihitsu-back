@@ -49,11 +49,11 @@ public class Sejour {
 
     /**
      * Constructeur d'un Sejour
-     * @param refClient
-     * @param refEmploye
-     * @param chambre
-     * @param dateDebut
-     * @param dateFin
+     * @param refClient  référence d'un objet client
+     * @param refEmploye référence d'un objet employé
+     * @param chambre    référence d'un objet chambre
+     * @param dateDebut  date à laquelle la réservation commence
+     * @param dateFin    date à laquelle la réservation termine
      */
     public Sejour(Client refClient, Employe refEmploye, Chambre chambre, Instant dateDebut, Instant dateFin) {
         this.refClient = refClient;

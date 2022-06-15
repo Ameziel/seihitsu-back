@@ -9,10 +9,7 @@ package com.seihitsu.seihitsuback.employe;
  * @author Ameziel
  */
 public class EmployeNotFoundException extends RuntimeException {
-
     EmployeNotFoundException(Long id) {
         super("Le client avec l'id : " + id + " n'existe pas.");
     }
-
-
 }
