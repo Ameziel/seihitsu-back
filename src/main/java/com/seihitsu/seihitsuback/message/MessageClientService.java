@@ -3,9 +3,8 @@
  */
 package com.seihitsu.seihitsuback.message;
 
-import com.seihitsu.seihitsuback.client.Client;
-import com.seihitsu.seihitsuback.client.ClientNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,12 +14,13 @@ import java.util.Optional;
  *
  * @author Ameziel
  */
-public class MessageService {
+@Service
+public class MessageClientService {
 
-    private final MessageRepository messageRepository;
+    private final MessageClientRepository messageClientRepository;
     @Autowired
-    public MessageService(MessageRepository messageService) {
-        this.messageRepository = messageService;
+    public MessageClientService(MessageClientRepository messageClientService) {
+        this.messageClientRepository = messageClientService;
     }
 
 
@@ -29,7 +29,7 @@ public class MessageService {
      * @return une liste de clients
      */
     public List<MessageClient> getMessagesClient() {
-        return messageRepository.findAll();
+        return messageClientRepository.findAll();
     }
 
     /**
@@ -37,11 +37,11 @@ public class MessageService {
      * @return Le message de l'application(ID)
      */
     public Optional<MessageClient> getMessageClientById(Long messageId) {
-        boolean exists = messageRepository.existsById(messageId);
+        boolean exists = messageClientRepository.existsById(messageId);
         if (!exists) {
             throw new MessageClientNotFoundException(messageId);
         }
-        return messageRepository.findById(messageId);
+        return messageClientRepository.findById(messageId);
     }
 
     /**
@@ -49,7 +49,7 @@ public class MessageService {
      * @param messageClient
      */
     public void addNewMessageClient(MessageClient messageClient) {
-        messageRepository.save(messageClient);
+        messageClientRepository.save(messageClient);
     }
 
     /**
@@ -57,11 +57,11 @@ public class MessageService {
      * @param messageClientId
      */
     public void deleteMessageClient(Long messageClientId) {
-        boolean exists = messageRepository.existsById(messageClientId);
+        boolean exists = messageClientRepository.existsById(messageClientId);
         if (!exists) {
             throw new MessageClientNotFoundException(messageClientId);
         }
-        messageRepository.deleteById(messageClientId);
+        messageClientRepository.deleteById(messageClientId);
     }
 
 }

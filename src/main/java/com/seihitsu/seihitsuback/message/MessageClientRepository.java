@@ -10,6 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Ameziel
  */
-public interface MessageRepository extends JpaRepository<MessageClient, Long> {
+public interface MessageClientRepository extends JpaRepository<MessageClient, Long> {
 
 }

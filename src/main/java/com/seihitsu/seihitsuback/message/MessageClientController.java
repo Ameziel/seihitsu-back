@@ -1,10 +1,8 @@
 /*
- * MessageController.java
+ * MessageClientController.java
  */
 package com.seihitsu.seihitsuback.message;
 
-import com.seihitsu.seihitsuback.client.Client;
-import com.seihitsu.seihitsuback.client.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,32 +16,32 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping(path = "api/message")
-public class MessageController {
+public class MessageClientController {
 
-    private final MessageService messageService;
+    private final MessageClientService messageClientService;
 
     @Autowired
-    public MessageController(MessageService messageService) {
-        this.messageService = messageService;
+    public MessageClientController(MessageClientService messageClientService) {
+        this.messageClientService = messageClientService;
     }
 
     @GetMapping("/all")
     public List<MessageClient> getClients() {
-        return messageService.getMessagesClient();
+        return messageClientService.getMessagesClient();
     }
 
     @GetMapping(path = "/{messageid}")
     public Optional<MessageClient> getMessageById(@PathVariable("messageid") Long messageid){
-        return messageService.getMessageClientById(messageid);
+        return messageClientService.getMessageClientById(messageid);
     }
 
     @PostMapping("/add")
     public void ajouterMessageClient(@RequestBody MessageClient messageClient) {
-        messageService.addNewMessageClient(messageClient);
+        messageClientService.addNewMessageClient(messageClient);
     }
 
     @DeleteMapping(path = "/{messageid}")
     public void deleteClient(@PathVariable("messageid") Long messageid) {
-        messageService.deleteMessageClient(messageid);
+        messageClientService.deleteMessageClient(messageid);
     }
 }
