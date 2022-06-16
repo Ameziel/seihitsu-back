@@ -2,12 +2,14 @@ package com.seihitsu.seihitsuback.employe;
 
 import com.seihitsu.seihitsuback.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNullApi;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/employe")
+@CrossOrigin("*")
 public class EmployeController {
 
     private final EmployeService employeService;
@@ -23,7 +25,7 @@ public class EmployeController {
     }
 
     @PostMapping("/add")
-    public void ajoutClient(@RequestBody Employe employe) {
+    public void ajoutEmploye(@RequestBody Employe employe) {
         employeService.addNewEmploye(employe);
     }
 
