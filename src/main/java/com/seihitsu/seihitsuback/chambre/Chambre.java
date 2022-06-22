@@ -32,6 +32,8 @@ public class Chambre {
     @JsonIgnoreProperties(value = { "chambre" }, allowSetters = true)
     private Set<Sejour> sejours = new HashSet<>();
 
+    //TODO v2 rendre la chambre indisponible à la réservation si travaux etc.
+
     /**
      * Constructeur chambre
      * @param prixNuitee

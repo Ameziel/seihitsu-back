@@ -1,8 +1,6 @@
 package com.seihitsu.seihitsuback.employe;
 
-import com.seihitsu.seihitsuback.client.Client;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.NonNullApi;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,8 +22,9 @@ public class EmployeController {
         return employeService.getEmployes();
     }
 
+
     @PostMapping("/add")
-    public void ajoutEmploye(@RequestBody Employe employe) {
+    public void addEmploye(@RequestBody Employe employe) {
         employeService.addNewEmploye(employe);
     }
 

@@ -26,7 +26,7 @@ public class MessageClientController {
     }
 
     @GetMapping("/all")
-    public List<MessageClient> getClients() {
+    public List<MessageClient> getMessageClients() {
         return messageClientService.getMessagesClient();
     }
 
@@ -36,7 +36,7 @@ public class MessageClientController {
     }
 
     @PostMapping("/add")
-    public void ajouterMessageClient(@RequestBody MessageClient messageClient) {
+    public void addMessageClient(@RequestBody MessageClient messageClient) {
         messageClientService.addNewMessageClient(messageClient);
     }
 

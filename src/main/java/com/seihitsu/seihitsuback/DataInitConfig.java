@@ -25,8 +25,8 @@ public class DataInitConfig {
                     "email@gmail.com"
             );
             Client b = new Client(
-                    "sam",
-                    "sic",
+                    "charzam",
+                    "dupuis",
                     "email@gmail.com"
             );
             clientRepository.saveAll
