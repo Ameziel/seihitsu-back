@@ -24,9 +24,7 @@ public class EmployeController {
 
 
     @PostMapping("/add")
-    public void addEmploye(@RequestBody Employe employe) {
-        employeService.addNewEmploye(employe);
-    }
+    public void addEmploye(@RequestBody Employe employe) { employeService.addNewEmploye(employe); }
 
     @DeleteMapping(path = "/{employeid}")
     public void deleteClient(@PathVariable("employeid") Long id) {
